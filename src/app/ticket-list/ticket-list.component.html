@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-8">
+    <ng-container *ngIf="ticketList">
+      <div class="card mb-3" *ngFor="let ticket of ticketList">
+        <div class="card-header bg-dark text-light">
+          {{ticket.title}}
+        </div>
+        <div class="card-body">
+          {{ticket.content}} <br>
+          {{ticket.status}} <br>
+          {{ticket.timestamp}} <br>
+          {{ticket.created_by.name}} <br>
+          {{ticket.created_by.surname}} <br>
+          {{ticket.created_by.address.city}} <br>
+          {{ticket.created_by.address.state}} <br>
+          {{ticket.created_by.address.zip_code}} <br>
+          {{ticket.created_by.role}} <br>
+          <div *ngFor="let comment of ticket.comments">
+            {{comment.written_by.name}} {{comment.written_by.surname}} <br>
+            {{comment.content}}
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="col-4">
+    filter
+  </div>
+</div>
