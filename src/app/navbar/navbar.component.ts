@@ -8,7 +8,7 @@ import {AuthService} from '../services/auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  currentUser: User;
+  currentUser: User | null;
   isLoggedIn = false;
 
   constructor(private auth: AuthService) {

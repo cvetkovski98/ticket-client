@@ -33,6 +33,7 @@ export class TicketService {
     ticket.id = uuid.v4();
     ticket.timestamp = moment().format('YYYY-MM-DD HH:mm:ss');
     ticket.comments = [];
+    ticket.assignee = ticket.assignee == null ? null : ticket.assignee;
     this.http.post(url, ticket).subscribe(
       () => {
         return this.router.navigate(['/tickets']);

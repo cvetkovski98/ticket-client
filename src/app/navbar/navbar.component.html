@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
   <div class="container">
-    <a [routerLink]="['/tickets']" class="navbar-brand">COKA.MK</a>
+    <a [routerLink]="['/tickets']" class="navbar-brand">TICKETS</a>
     <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
             data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
       <span class="navbar-toggler-icon"></span>
@@ -10,7 +10,7 @@
         <li class="nav-item active">
           <a [routerLink]="['/tickets']" class="nav-link" routerLinkActive="active"> Ticket List <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="currentUser?.role === 'OPERATOR'">
           <a [routerLink]="['/tickets/create']" class="nav-link" routerLinkActive="active"> Create ticket </a>
         </li>
       </ul>
@@ -29,7 +29,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a (click)="logout()" class="nav-link" style="cursor: pointer">Logout</a>
+          <a (click)="logout()" class="nav-link" style="cursor: pointer" routerLink="/tickets">Logout</a>
         </li>
       </ul>
     </div>

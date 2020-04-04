@@ -13,7 +13,8 @@ export class TicketCreateComponent implements OnInit {
   newTicket = new FormGroup({
     title: new FormControl('', Validators.required),
     content: new FormControl('', Validators.required),
-    status: new FormControl('', Validators.required)
+    status: new FormControl('', Validators.required),
+    assignee: new FormControl()
   });
   statuses = TicketStatus.getAll();
 

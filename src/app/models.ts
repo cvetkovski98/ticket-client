@@ -62,6 +62,7 @@ export interface CreateTicket {
   timestamp: string;
   status: string;
   created_by: string;
+  assignee: string | null;
   comments: Comment[];
 }
 

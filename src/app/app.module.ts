@@ -29,7 +29,9 @@ import {TicketCommentComponent} from './ticket-comment/ticket-comment.component'
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {
+      onSameUrlNavigation: 'reload'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
