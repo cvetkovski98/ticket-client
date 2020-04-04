@@ -30,7 +30,7 @@ export class TicketDetailsComponent implements OnInit {
         this.comment = new FormGroup({
           content: new FormControl('', Validators.required),
           status: new FormControl(this.ticket.status),
-          assignee: new FormControl(this.ticket.assignee.id)
+          assignee: new FormControl(this.ticket.assignee?.id)
         });
       }
     );
