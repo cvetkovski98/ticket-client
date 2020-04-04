@@ -1,0 +1,9 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <h6 class="font-weight-bold">{{comment.written_by.name}} {{comment.written_by.surname}}
+      ({{comment.written_by.role}}) updated status to: {{comment.statusChangedTo}}
+      <span class="d-inline-block ml-2">{{comment.timestamp | date: 'short'}}</span>
+    </h6>
+    <span class="">{{comment.content}}</span>
+  </div>
+</div>

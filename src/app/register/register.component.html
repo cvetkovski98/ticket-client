@@ -1,0 +1,76 @@
+<div class="card w-75 mx-auto">
+  <div class="card-header">
+    Registration form
+  </div>
+  <div class="card-body">
+    <div (ngSubmit)="onSubmit()" [formGroup]="newUser" class="row">
+      <div class="col">
+        <p>Personal information:</p>
+        <div class="form-group">
+          <label for="name">Name: </label>
+          <input class="form-control" formControlName="name" id="name">
+          <small *ngIf="newUser.controls['name'].invalid && newUser.controls['name'].touched" class="text-danger">Field
+            is required</small>
+        </div>
+        <div class="form-group">
+          <label for="surname">Surname: </label>
+          <input class="form-control" formControlName="surname" id="surname">
+          <small *ngIf="newUser.controls['surname'].invalid && newUser.controls['surname'].touched" class="text-danger">Field
+            is required</small>
+        </div>
+        <div class="form-group">
+          <label for="email">Email: </label>
+          <input class="form-control" formControlName="email" id="email" type="email">
+          <small *ngIf="newUser.controls['email'].invalid && newUser.controls['email'].touched" class="text-danger">Field
+            is required</small>
+        </div>
+        <div class="form-group">
+          <label for="password">Password: </label>
+          <input class="form-control" formControlName="password" id="password" type="password">
+          <small *ngIf="newUser.controls['password'].invalid && newUser.controls['password'].touched"
+                 class="text-danger">Field is
+            required</small>
+        </div>
+        <div class="form-group">
+          <label for="role">Role: </label>
+          <select class="form-control" formControlName="role" id="role">
+            <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+          </select>
+          <small *ngIf="newUser.controls['role'].invalid && newUser.controls['role'].touched" class="text-danger">Field
+            is required</small>
+        </div>
+      </div>
+      <div class="col">
+        <div formGroupName="address">
+          <p>Address information:</p>
+          <div class="form-group">
+            <label for="city">City: </label>
+            <input class="form-control" formControlName="city" id="city">
+            <small *ngIf="newUser.controls['address'].get('city').invalid && newUser.controls['address'].get('city').touched"
+                   class="text-danger">Field
+              is required</small>
+          </div>
+          <div class="form-group">
+            <label for="state">State: </label>
+            <input class="form-control" formControlName="state" id="state">
+            <small *ngIf="newUser.controls['address'].get('state').invalid && newUser.controls['address'].get('state').touched"
+                   class="text-danger">Field
+              is required</small>
+          </div>
+          <div class="form-group">
+            <label for="zip_code">Zip code: </label>
+            <input class="form-control" formControlName="zip_code" id="zip_code">
+            <small *ngIf="newUser.controls['address'].get('zip_code').invalid && newUser.controls['address'].get('zip_code').touched"
+                   class="text-danger">Field
+              is required</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-right">
+    <button (click)="onSubmit(); newUser.markAllAsTouched()" class="btn btn-primary">
+      Register
+    </button>
+  </div>
+</div>

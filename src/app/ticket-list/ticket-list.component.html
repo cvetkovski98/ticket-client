@@ -1,29 +1,28 @@
 <div class="row">
-  <div class="col-8">
+  <div class="col">
     <ng-container *ngIf="ticketList">
-      <div class="card mb-3" *ngFor="let ticket of ticketList">
-        <div class="card-header bg-dark text-light">
-          {{ticket.title}}
+      <div *ngFor="let item of displayList" class="card mb-3">
+        <div class="card-header bg-dark text-light d-flex justify-content-between">
+          <div>
+            <h6 class="my-auto"><span [class]="item.badgeClass"
+                                      class="badge">{{item.ticket.status}}</span> {{item.ticket.title}}</h6>
+          </div>
+          <div class="d-inline-block">{{item.ticket.timestamp | date:'short'}}</div>
         </div>
         <div class="card-body">
-          {{ticket.content}} <br>
-          {{ticket.status}} <br>
-          {{ticket.timestamp}} <br>
-          {{ticket.created_by.name}} <br>
-          {{ticket.created_by.surname}} <br>
-          {{ticket.created_by.address.city}} <br>
-          {{ticket.created_by.address.state}} <br>
-          {{ticket.created_by.address.zip_code}} <br>
-          {{ticket.created_by.role}} <br>
-          <div *ngFor="let comment of ticket.comments">
-            {{comment.written_by.name}} {{comment.written_by.surname}} <br>
-            {{comment.content}}
+          <div class="card-text mb-3">
+            {{item.ticket.content}}
           </div>
+          <div>
+            Created by: {{item.ticket.created_by.name}} {{item.ticket.created_by.surname}}
+          </div>
+        </div>
+        <div class="card-footer text-right">
+          <a [routerLink]="['/tickets', item.ticket.id ]" class="btn btn-primary">
+            View details
+          </a>
         </div>
       </div>
     </ng-container>
-  </div>
-  <div class="col-4">
-    filter
   </div>
 </div>
